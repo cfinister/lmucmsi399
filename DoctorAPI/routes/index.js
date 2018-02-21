@@ -16,13 +16,18 @@ function makeFakeDoctor() {
   }
 }
 
+const allDoctors = Array(20).fill(0).map(makeFakeDoctor);
+
 /* GET home page. */
 router.get('/', (req, res) => {
   res.render('index', { title: 'Express' });
 });
 
 router.get('/doctornames', (req, res) => {
-  res.json({ data: Array(20).fill(0).map(makeFakeDoctor) });
+  const name = req.query.name;
+  console.log(allDoctors);
+  res.header('Access-Control-Allow-Origin', '*');
+  res.json({ data: allDoctors.filter(d => d.name.indexOf(name) !== -1) });
 });
 
 module.exports = router;

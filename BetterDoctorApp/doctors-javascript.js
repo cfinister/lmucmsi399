@@ -17,26 +17,25 @@
 // function search for doctors and bios
               searchButton1.click(() => {
                 console.log('--------');
-                $.getJSON('http://localhost:3000/doctornames'/*, {
+                $.getJSON('http://localhost:3000/doctornames', {
                         name: $("#search-doctor").val(),
                         api_key: "a064fc45488100a6a40c8b7e77f90ca4"
-                    }*/
+                    }
                 ).done(result => {
-                    console.log('*******', result);
-                    // table.empty();
-                    // JSON.parse(result.data).forEach(dataEntry => {
-                    //     let row = $("<tr></tr>");
-                    //     let firstNameColumn = $("<td></td>");
-                    //     firstNameColumn.text(dataEntry.name);
-                    //     row.append(firstNameColumn);
-                    //     let lastNameColumn = $("<td></td>");
-                    //     lastNameColumn.text(dataEntry.email);
-                    //     row.append(lastNameColumn);
-                    //     let profileColumn = $("<td></td>");
-                    //     profileColumn.text(dataEntry.city);
-                    //     row.append(profileColumn);
-                    //     table.append(row);
-                    // });
+                    table.empty();
+                    result.data.forEach(dataEntry => {
+                        let row = $("<tr></tr>");
+                        let firstNameColumn = $("<td></td>");
+                        firstNameColumn.text(dataEntry.name);
+                        row.append(firstNameColumn);
+                        let lastNameColumn = $("<td></td>");
+                        lastNameColumn.text(dataEntry.email);
+                        row.append(lastNameColumn);
+                        let profileColumn = $("<td></td>");
+                        profileColumn.text(dataEntry.city);
+                        row.append(profileColumn);
+                        table.append(row);
+                    });
                 }).fail(result => {
                   console.log('Uh-oh');
                 });
