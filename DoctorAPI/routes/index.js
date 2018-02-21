@@ -2,10 +2,10 @@ const express = require('express');
 const faker = require('faker');
 
 const router = express.Router();
-
-router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-});
+//
+// router.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+// });
 
 function makeFakeDoctor() {
   return {
