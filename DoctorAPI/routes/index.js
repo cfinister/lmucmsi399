@@ -11,7 +11,17 @@ function makeFakeDoctor() {
   return {
     name: faker.name.findName(),
     email: faker.internet.email(),
+    phone: faker.phone.phoneNumber(),
     licensed: faker.date.past(),
+    address: faker.address.city(),
+  }
+}
+
+function makeFakePatient() {
+  return {
+    name: faker.name.findName(),
+    birthday: faker.date.past(),
+    insurance: faker.
     address: faker.address.city(),
   }
 }
