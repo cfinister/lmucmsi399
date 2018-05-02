@@ -27,7 +27,7 @@ router.get('/doctornames', (req, res) => {
   const name = req.query.name;
   console.log(allDoctors);
   res.header('Access-Control-Allow-Origin', '*');
-  res.json({ data: allDoctors.filter(d => d.name.indexOf(name) !== -1) });
+  res.json({ data: allDoctors });
 });
 
 module.exports = router;
